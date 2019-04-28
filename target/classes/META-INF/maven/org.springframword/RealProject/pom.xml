@@ -22,10 +22,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+		    <groupId>org.jacoco</groupId>
+		    <artifactId>jacoco-maven-plugin</artifactId>
+		    <version>0.7.9</version>
+		</dependency>
+        <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-all</artifactId>
+		    <version>1.9.5</version>
+		    <scope>test</scope>
+		</dependency>
+        
         <dependency>
 	    <groupId>com.googlecode.json-simple</groupId>
 	    <artifactId>json-simple</artifactId>
@@ -48,6 +60,38 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>0.7.9</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			        </execution>
+			        <execution>
+			            <id>report</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			        </execution>
+			        <execution>
+			           <id>post-unit-test</id>
+			           <phase>test</phase>
+			           <goals>
+			           <goal>report</goal>
+			           </goals>
+			           <configuration>
+			               <outputDirectory>target/jacoco-report</outputDirectory>
+			           </configuration>
+			        </execution>
+			        
+				
+			    </executions>
+	     	</plugin>
         </plugins>
+        <finalName>spring-boot-docker</finalName>
     </build>
 </project>
