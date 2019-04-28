@@ -1,5 +1,6 @@
 package software;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,7 +11,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
 public class RecommendQuiz {
+	@Autowired
 	public static String quiz_Skill="";
 	public static String quiz_Skill_UserID="";
 	public ArrayList<Quiz> recommendQuizBySkills(int Skill_ID,int UserID)
@@ -30,9 +33,9 @@ public class RecommendQuiz {
 			for(int i=0;i<jsonarr_1.size();i++)
 			{
 			JSONObject jsonobj_1 = (JSONObject)jsonarr_1.get(i);
-			System.out.println("\nQuiz_ID: " +jsonobj_1.get("Quiz_id"));
+			//System.out.println("\nQuiz_ID: " +jsonobj_1.get("Quiz_id"));
 			int ID=Integer.parseInt((String) jsonobj_1.get("Quiz_id"));
-			System.out.println("\nQuiz_Name: " +jsonobj_1.get("Quiz_Name"));
+			//System.out.println("\nQuiz_Name: " +jsonobj_1.get("Quiz_Name"));
 			String name=(String) jsonobj_1.get("Quiz_Name");
 			Quiz q=new Quiz(ID, name);
 			Skill_quiz.add(q);
@@ -56,9 +59,9 @@ public class RecommendQuiz {
 			for(int i=0;i<jsonarr_1.size();i++)
 			{
 			JSONObject jsonobj_1 = (JSONObject)jsonarr_1.get(i);
-			System.out.println("\nQuiz_ID: " +jsonobj_1.get("Quiz_id"));
+			//System.out.println("\nQuiz_ID: " +jsonobj_1.get("Quiz_id"));
 			int ID=Integer.parseInt((String) jsonobj_1.get("Quiz_id"));
-			System.out.println("\nQuiz_Name: " +jsonobj_1.get("Quiz_Name"));
+			//System.out.println("\nQuiz_Name: " +jsonobj_1.get("Quiz_Name"));
 			String name=(String) jsonobj_1.get("Quiz_Name");
 			Quiz q=new Quiz(ID, name);
 			Skill_quiz_pass.add(q);
