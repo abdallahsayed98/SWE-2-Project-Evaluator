@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-
+@Service
 public class RecommendQuiz {
 	@Autowired
 	public static String quiz_Skill="";

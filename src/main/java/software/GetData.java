@@ -11,8 +11,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
 public class GetData {
+	@Autowired
 	public static ArrayList<String> Interest=new ArrayList<String>();
 	public static ArrayList<Skill> Skills=new ArrayList<Skill>();
     public String getJsonFromApi(String link)
